@@ -29,6 +29,9 @@ jobs:
       - name: Checkout garden
         uses: actions/checkout@v4
 
+      - name: Remove content symlink
+        run: rm -f content
+
       - name: Checkout secondbrain content
         uses: actions/checkout@v4
         with:
