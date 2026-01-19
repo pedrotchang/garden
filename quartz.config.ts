@@ -34,6 +34,10 @@ const config: QuartzConfig = {
       "3-resources",
       "4-archive",
 
+      // Other content types (go to other destinations)
+      "blog",         // → Hugo (pedrotchang.dev)
+      "newsletters",  // → Substack
+
       // Other potentially sensitive
       "Input",
       "periodic-notes",
