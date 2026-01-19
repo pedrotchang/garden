@@ -1,6 +1,9 @@
 # Build stage
 FROM oven/bun:1.3-alpine AS builder
 
+# Install coreutils for GNU env (supports -S flag needed by quartz)
+RUN apk add --no-cache coreutils
+
 WORKDIR /src
 
 # Copy package files first for better caching
