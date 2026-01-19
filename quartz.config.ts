@@ -8,16 +8,40 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "Quartz 4",
-    pageTitleSuffix: "",
+    pageTitle: "Pedro's Digital Garden",
+    pageTitleSuffix: " | Pedro Chang",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    baseUrl: "garden.pedrotchang.dev",
+    ignorePatterns: [
+      // Obsidian internals
+      ".obsidian",
+      ".git",
+      ".github",
+
+      // Templates and drafts
+      "templates",
+      "private",
+
+      // PARA folders that shouldn't be public
+      "0-inbox",
+      "1-projects",
+      "2-areas",
+      "3-resources",
+      "4-archive",
+
+      // Other potentially sensitive
+      "Input",
+      "periodic-notes",
+      "Excalidraw",
+
+      // Scripts
+      "*.sh",
+    ],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -73,7 +97,8 @@ const config: QuartzConfig = {
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],
-    filters: [Plugin.RemoveDrafts()],
+    // CRITICAL: Only publish notes with explicit `publish: true` in frontmatter
+    filters: [Plugin.ExplicitPublish()],
     emitters: [
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
