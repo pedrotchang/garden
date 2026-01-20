@@ -40,7 +40,7 @@ const config: QuartzConfig = {
       // Scripts
       "*.sh",
     ],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
