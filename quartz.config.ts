@@ -27,12 +27,10 @@ const config: QuartzConfig = {
       "templates",
       "private",
 
-      // PARA folders that shouldn't be public
-      "0-inbox",
-      "1-projects",
-      "2-areas",
-      "3-resources",
-      "4-archive",
+
+      // Other content types (go to other destinations)
+      "blog",         // → Hugo (pedrotchang.dev)
+      "newsletters",  // → Substack
 
       // Other potentially sensitive
       "Input",
@@ -42,7 +40,7 @@ const config: QuartzConfig = {
       // Scripts
       "*.sh",
     ],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
